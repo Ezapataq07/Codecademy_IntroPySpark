@@ -1,0 +1,2 @@
+https://spark.apache.org/docs/latest/rdd-programming-guide.html#transformations
+https://spark.apache.org/docs/latest/configuration.html#available-properties

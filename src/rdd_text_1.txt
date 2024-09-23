@@ -1,0 +1,13 @@
+The entry point to Spark is called a SparkSession. There are many possible configurations for a SparkSession, but for now, we will simply start a new session and save it as spark:
+
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.getOrCreate() 
+
+We can use Spark with data stored on a distributed file system or just on our local machine. Without additional configurations, Spark defaults to local with the number of partitions set to the number of CPU cores on our local machine (often, this is four).
+
+The sparkContext within a SparkSession is the connection to the cluster and gives us the ability to create and transform RDDs. We can create an RDD from data saved locally using the parallelize() function. We can add an argument to specify the number of partitions, which is generally recommended as 2-4 partitions per machine. Otherwise, Spark defaults to the total number of CPU cores.
+
+# default setting
+rdd_par = spark.sparkContext.parallelize(dataset_name)
+
+If we are working with an external dataset, or possibly a large dataset stored on a distributed file system, we can use textFile() to creat
